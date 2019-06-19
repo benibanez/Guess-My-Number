@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jun  6 16:58:07 2019
+
+@author: beninman2
+"""
+
+correct = 'n'
+guess = 50
+i = ''
+high = 100
+low = 0
+temp = 0
+
+print('Please think of a number between 0 and 100!')
+while (correct != 'c') and (i != 'h' or i != 'l' or i != 'c'):
+    
+    print('Is your secret number ' + str(int(guess)) + '?')
+    i = input("Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly. ")
+    if i == 'c':
+        correct = 'c'
+        print('Game over. Your secret number was: ' + str(int(guess)))
+        break
+        
+    elif i == 'h':
+        temp = guess
+        guess = int((guess + low) / 2)
+        high = temp
+        i = 'n'
+            
+    elif i == 'l':
+        temp = guess
+        guess = int((guess + high) / 2)
+        low = temp
+        i = 'n' 
+    else:
+        print('Sorry, I did not understand your input.')
+        i = 'n'           
